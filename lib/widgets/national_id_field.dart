@@ -49,6 +49,9 @@ class NationalIdTextFormField extends StatelessWidget {
             if (value.length != 11) {
               return 'National ID is 11 digits long.';
             }
+            if (!RegExp(r'^\d{11}$').hasMatch(value)) {
+              return 'National ID must contain only digits.';
+            }
             return null;
           },
       onChanged: onChanged,
